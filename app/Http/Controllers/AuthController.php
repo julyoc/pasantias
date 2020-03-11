@@ -46,7 +46,10 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
         if ($token = $this->guard()->attempt($credentials)) {
-                return response()->json([
+            return response()->json(['status' => 'success',
+            'token' => $token,
+            'user' => User::where('email', $credentials['email'])->get()->first()], 200)->header('Authorization', $token);
+            response()->json([
                     'token' => $token,
                     'user' => User::where('email', $credentials['email'])->get()->first()
                 ], 200);
