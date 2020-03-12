@@ -4,6 +4,7 @@
             <div class="card-header">Dashboard</div>
             <div class="card-body">
                 User Dashboard
+                {{jwt}}
             </div>
         </div>
     </div>
@@ -12,11 +13,14 @@
   export default {
     data() {
       return {
-        //
+        jwt: localStorage.getItem('laravel-jwt-auth')
       }
     },
     components: {
       //
+    },
+    mounted() {
+        console.log(localStorage.getItem('laravel-jwt-auth'));
     }
   }
 </script>
