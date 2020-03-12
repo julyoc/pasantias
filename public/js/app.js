@@ -3104,6 +3104,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3111,6 +3115,13 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {//
+  },
+  methods: {
+    logout: function logout() {
+      var redirect = this.$auth.redirect();
+      var app = this;
+      this.$auth.logout();
+    }
   },
   mounted: function mounted() {
     console.log(localStorage.getItem('laravel-jwt-auth'));
@@ -78243,6 +78254,10 @@ var render = function() {
             _vm._s(_vm.jwt) +
             "\n        "
         )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group", attrs: { id: "logout" } }, [
+        _c("button", { on: { click: _vm.logout } }, [_vm._v("Logout!")])
       ])
     ])
   ])
@@ -94798,8 +94813,8 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\addminApp2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\addminApp2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\wamp64\www\pasantias\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\pasantias\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
