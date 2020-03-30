@@ -31,3 +31,7 @@ Route::prefix('v1')->group(function () {
         });
     });
 });
+
+Route::prefix('v2')->group(function() {
+    Route::get('serv', 'ServicioController@getServices');
+});

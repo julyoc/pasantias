@@ -22,6 +22,10 @@
                                     <label for="password">Password</label>
                                     <input type="password" id="password" class="form-control" v-model="password" placeholder="contraseña" required>
                                 </div>
+                                <br>
+                                <div class="form-group ccc">
+                                    <router-link to="/rec/pasword/1h1g1">ha olvidado su contraseña</router-link>
+                                </div>
                                 <div class="bbbtn">
                                     <button type="submit" class="btn btn-primary">Acceder</button>
                                 </div>
@@ -49,6 +53,9 @@
     }
     .contq{
         padding-top: 1em;
+    }
+    .ccc{
+        text-align: center;
     }
 </style>
 
