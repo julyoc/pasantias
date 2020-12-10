@@ -30,8 +30,8 @@ Route::prefix('v1')->group(function () {
             Route::post('logout', 'AuthController@logout');
         });
     });
-});
-
-Route::prefix('v2')->group(function() {
-    Route::get('serv', 'ServicioController@getServices');
+    Route::prefix('token')->group(function () {
+        Route::post('save', 'AccessTokenController@save');
+        Route::get('get', 'AccessTokenController@token');
+    });
 });

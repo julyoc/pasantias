@@ -15,6 +15,7 @@ class AuthController extends Controller
             'name' => 'required|min:3',
             'email' => 'required|email|unique:users',
             'password'  => 'required|min:3|confirmed',
+            'role' => 'required'
         ]);
         if ($v->fails())
         {
@@ -27,13 +28,14 @@ class AuthController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
+        $user->role = $request->role;
         $user->save();
         return response()->json(['status' => 'success'], 200);
     }
 
     public function login(Request $request)
     {
-        $credentials = $request->only('name', 'password');
+        $credentials = $request->only('email', 'password');
         if ($token = $this->guard()->attempt($credentials)) {
             return response()->json(['status' => 'success'], 200)->header('Authorization', $token);
         }

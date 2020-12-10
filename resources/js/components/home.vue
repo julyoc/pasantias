@@ -4,7 +4,7 @@
             <div class="col-md-8">
                 <img src="../../assets/Espe-Latacunga.png" alt="background image" class="emg">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 d-sm-none d-md-block">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-1"></div>
@@ -15,8 +15,8 @@
                         <div class="col-md-12">
                             <form autocomplete="off" @submit.prevent="login" method="post">
                                 <div class="form-group">
-                                    <label for="name">Nombre de Usuario</label>
-                                    <input type="text" id="name" class="form-control" placeholder="usuario" v-model="name" required>
+                                    <label for="email">Nombre de Usuario</label>
+                                    <input type="text" id="email" class="form-control" placeholder="usuario" v-model="email" required>
                                 </div>
                                 <div class="form-group contq">
                                     <label for="password">Password</label>
@@ -68,6 +68,8 @@
         },
         mounted() {
             console.log('Component mounted.');
+            tkn = JSON.parse(localStorage.getItem('laravel-jwt-auth')) | null;
+            if (!tkn) this.$router.redirectTo('/dashboard')
         },
         methods: {
             login() {
@@ -76,7 +78,7 @@
                 var app = this
                 this.$auth.login({
                     data: {
-                    name: app.name,
+                    email: app.email,
                     password: app.password
                     },
                     success: function() {
