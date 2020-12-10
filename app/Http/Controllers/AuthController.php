@@ -15,6 +15,7 @@ class AuthController extends Controller
             'name' => 'required|min:3',
             'email' => 'required|email|unique:users',
             'password'  => 'required|min:3|confirmed',
+            'role' => 'required'
         ]);
         if ($v->fails())
         {
@@ -27,6 +28,7 @@ class AuthController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
+        $user->role = $request->role;
         $user->save();
         return response()->json(['status' => 'success'], 200);
     }

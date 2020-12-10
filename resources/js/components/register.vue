@@ -29,6 +29,10 @@
                     <label for="password_confirmation">Password confirmation</label>
                     <input type="password" id="password_confirmation" class="form-control" v-model="password_confirmation">
                 </div>
+                <div class="form-group" v-bind:class="{ 'has-error': has_error && errors.password }">
+                    <label for="role">role</label>
+                    <input type="text" id="role" class="form-control" v-model="role">
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
           </div>
@@ -59,7 +63,8 @@
             name: app.name,
             email: app.email,
             password: app.password,
-            password_confirmation: app.password_confirmation
+            password_confirmation: app.password_confirmation,
+            role: app.role
           },
           success: function () {
             app.success = true
@@ -76,3 +81,9 @@
     }
   }
 </script>
+
+<style>
+label {
+  color: black;
+}
+</style>

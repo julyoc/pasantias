@@ -22,7 +22,7 @@ vue.router = router;
 vue.use(VueRouter);
 
 vue.use(VueAxios, axios)
-axios.defaults.baseURL = `http://localhost:8000/api/v1`;
+axios.defaults.baseURL = `${window.location.origin}/api/v1`;
 vue.use(VueAuth, auth);
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';

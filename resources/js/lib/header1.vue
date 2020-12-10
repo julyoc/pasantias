@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <router-link :to="{name: 'home'}" class="navbar-brand">Laravel + JWT + Vue JS</router-link>
+  <nav class="navbar navbar-expand-lg navbar-ligth bg-ligth">
+    <img src="../../assets/espe-sede-Latacunga.png" class="navbar-brand log" alt="espe latacunga">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -57,5 +57,13 @@
 <style>
 .navbar {
   margin-bottom: 30px;
+}
+.log{
+        padding-top: 1em;
+        padding-bottom: 1em;
+        width: 15em;
+}
+nav {
+  border-bottom: 1px solid #a5a5a5ca;
 }
 </style>

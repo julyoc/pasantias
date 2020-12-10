@@ -4,6 +4,7 @@ import HomeComponent from './components/home';
 import RegisterComponent from './components/register';
 import LoginComponent from './components/login';
 import Dashboard from './components/dashboard';
+import RecPassComponent from './components/recpass.vue';
 
 const routes = [
     {
@@ -26,6 +27,14 @@ const routes = [
       path: '/login',
       name: 'login',
       component: LoginComponent,
+      meta: {
+        auth: false
+      }
+    },
+    {
+      path: '/rec/pasword/1h1g1',
+      name: 'recuperar contraseña',
+      component: RecPassComponent,
       meta: {
         auth: false
       }
