@@ -16,6 +16,14 @@ const routes = [
         }
     },
     {
+      path: '/404',
+      name: 'dashboard',
+      component: Dashboard,
+      meta: {
+          auth: true
+      }
+  },
+    {
       path: '/register',
       name: 'register',
       component: RegisterComponent,

@@ -67,3 +67,13 @@
     }
   }
 </script>
+<!--style>
+.container-fluid {
+  background-image: url("../../assets/latacunga-fachada.jpg");
+  background-repeat: no-repeat;
+  background-size: 120%;
+  min-height: 100%; 
+  height: 100%;
+  position: fixed;
+}
+</style-->
