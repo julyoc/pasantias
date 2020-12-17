@@ -14,14 +14,7 @@
               <br>
               <div class="offset-3"></div>
               <div class="col-md-6">
-              <button class="btn btn-link" data-toggle="modal">Moodle</button>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="offset-3"></div>
-              <div class="col-md-6">
-              <button class="btn btn-link" data-toggle="modal" data-target="#staticBackdrop" :disabled="role != 'alu'">Alumno</button>
+              <button class="btn btn-link" onclick="location.href='http://moodleltga.espe.edu.ec/moodle/login/index.php'">Moodle Ingenieria</button><hr><button class="btn btn-link" data-toggle="modal">Moodle Tecnologias</button>
               </div>
             </div>
             <hr>
@@ -123,11 +116,11 @@
         role: undefined,
         items: {
           alu: [{}],
-          doc: [{}],
-          tics: [{}],
-          fin: [{}],
-          admin: [{name: 'Biblioteca', url: '#'}, {name: 'Unidad de admicion y registro', url: '#'}],
-          lab: [{}]
+          doc: [{name:'SG-RAD', url:"#"}],
+          tics: [{name:'OTRS', url:"#"}],
+          fin: [{name:'Sistema Financiero',url:"#"}],
+          admin: [{name: 'Biblioteca', url: '#'}, {name: 'Unidad de admisión y registro', url: '#'}],
+          lab: [{name:'SG-RAD',url:"#"}]
         }
       }
     },
@@ -136,6 +129,7 @@
     },
     mounted() {
         console.log(localStorage.getItem('laravel-jwt-auth'));
+        localStorage.setItem('userInfo',JSON.stringify('laravel-jwt-auth'))
         axios.get(`${window.location.origin}/api/v1/auth/user`).then(res => {
           this.role = res.data.data.role; 
           console.log(res.data.data.role);
