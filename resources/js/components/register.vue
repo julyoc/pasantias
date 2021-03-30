@@ -32,7 +32,6 @@
                 <div class="form-group" v-bind:class="{ 'has-error': has_error && errors.role }">
                   <label style="color:black" for="role">Rol</label>
                   <select class="custom-select" id="role" v-model="role">
-                    <option selected>Rol</option>
                     <option value="alu">Alumno</option>
                     <option value="doc">Docente</option>
                     <option value="tics">TICs</option>

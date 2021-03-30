@@ -7,14 +7,14 @@
           <div class="card-body">
             <div class="alert alert-danger" v-if="has_error && !success">
               <p v-if="error == 'login_error'">Validation Errors.</p>
-              <p v-else>Error, unable to connect with these credentials.</p>
+              <p v-else>Error, revise sus credenciales.</p>
             </div>
             <form autocomplete="off" @submit.prevent="login" method="post">
               <div class="form-group">
                 <label for="email">E-mail</label>
                 <input type="email" id="email" class="form-control" placeholder="user@example.com" v-model="email" required>
               </div>
-              <div class="form-group">
+              <div class="form-group contq">
                 <label for="password">Password</label>
                 <input type="password" id="password" class="form-control" v-model="password" required>
               </div>

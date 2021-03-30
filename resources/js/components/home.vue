@@ -13,10 +13,14 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
+                            <div class="alert alert-danger" v-if="has_error && !success">
+                                <p v-if="error == 'login_error'">Error de validacion.</p>
+                                <p v-else>Error, correo o contraseña incorrectos.</p>
+                            </div>
                             <form autocomplete="off" @submit.prevent="login" method="post">
                                 <div class="form-group">
                                     <label for="email" style="color:black" >Nombre de Usuario</label>
-                                    <input type="text" id="email" class="form-control" placeholder="Usuario" v-model="email" required>
+                                    <input type="email" id="email" class="form-control" placeholder="Usuario" v-model="email" required>
                                 </div>
                                 <div class="form-group contq">
                                     <label for="password" style="color:black" >Contraseña</label>
@@ -62,11 +66,17 @@
 </style>
 
 <script>
+const zxcvbn = require('zxcvbn');
     export default {
         data() {
             return {
-                info: 'info gfdgfdgfd'
+                email: null,
+                password: null,
+                success: false,
+                has_error: false,
+                error: ''
             }
+            
         },
         mounted() {
             console.log('Component mounted.');
@@ -94,9 +104,16 @@
                         app.error = res.response.data.error
                     },
                     rememberMe: true,
-                    fetchUser: true
+                    fetchUser: true,
+                    
                 })
-            }
+            },
+            computed: {
+                        passwordStrength(){
+                            return zxcvbn( this.form.password );
+                        }
+                    },
         }
+        
     };
 </script>
