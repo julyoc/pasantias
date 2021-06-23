@@ -277,9 +277,9 @@ export default {
                 ],
                 lab: [
                     {
-                        name: "SG-RAD",
+                        name: "SG-Telefonia",
                         url:
-                            "http://localhost:4200/sg-lab/" +
+                            "http://localhost/sg-telefonia/index.php?r=site/login&token=" +
                             localStorage.getItem("laravel-jwt-auth")
                     }
                 ]
