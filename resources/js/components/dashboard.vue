@@ -107,7 +107,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="container">
                 <div class="row">
                     <div class="col-6">
                         <div class="row">
@@ -140,6 +140,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
         <div
             id="staticBackdrop"
@@ -246,7 +247,7 @@ export default {
                     {
                         name: "SG-RAD",
                         url:
-                            "http://localhost:4200/sgrad/" +
+                            "http://localhost/sg-rad/index.php?r=site/login&token=" +
                             localStorage.getItem("laravel-jwt-auth")
                     }
                 ],
