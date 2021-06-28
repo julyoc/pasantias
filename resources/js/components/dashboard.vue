@@ -30,7 +30,6 @@
                             class="btn btn-link"
                             data-toggle="modal"
                             data-target="#staticBackdrop"
-                            :disabled="role != 'alu'"
                         >
                             Alumno
                         </button>
@@ -44,7 +43,6 @@
                             class="btn btn-link"
                             data-toggle="modal"
                             data-target="#staticBackdrop"
-                            :disabled="role != 'doc'"
                         >
                             Docente
                         </button>
@@ -58,7 +56,6 @@
                             class="btn btn-link"
                             data-toggle="modal"
                             data-target="#staticBackdrop"
-                            :disabled="role != 'tics'"
                         >
                             Utics
                         </button>
@@ -72,7 +69,6 @@
                             class="btn btn-link"
                             data-toggle="modal"
                             data-target="#staticBackdrop"
-                            :disabled="role != 'fin'"
                         >
                             Financiero
                         </button>
@@ -86,7 +82,6 @@
                             class="btn btn-link"
                             data-toggle="modal"
                             data-target="#staticBackdrop"
-                            :disabled="role != 'admin'"
                         >
                             Administrativo
                         </button>
@@ -100,7 +95,6 @@
                             class="btn btn-link"
                             data-toggle="modal"
                             data-target="#staticBackdrop"
-                            :disabled="role != 'lab'"
                         >
                             Laboratorios
                         </button>
@@ -247,7 +241,7 @@ export default {
                     {
                         name: "SG-RAD",
                         url:
-                            "http://localhost/sg-rad/index.php?r=site/login&token=" +
+                            "http://webltga.espe.edu.ec/sg-rad/index.php?r=site/login&token=" +
                             localStorage.getItem("laravel-jwt-auth")
                     }
                 ],
@@ -255,7 +249,7 @@ export default {
                     {
                         name: "OTRS",
                         url:
-                            "http://localhost:4200/otrs/" +
+                            "http://webltga.espe.edu.ec/sg-otrs/index.php?r=site/login&token=" +
                             localStorage.getItem("laravel-jwt-auth")
                     }
                 ],
@@ -263,7 +257,7 @@ export default {
                     {
                         name: "Sistema Financiero",
                         url:
-                            "http://localhost:4200/comprobantes/" +
+                            "http://webltga.espe.edu.ec/comprobantes/index.php?r=site/login&token=" +
                             localStorage.getItem("laravel-jwt-auth")
                     }
                 ],
@@ -271,7 +265,7 @@ export default {
                     {
                         name: "Biblioteca",
                         url:
-                            "http://localhost:4200/record/" +
+                            "http://webltga.espe.edu.ec/sg-ecp/index.php?r=site/login&token=" +
                             localStorage.getItem("laravel-jwt-auth")
                     }
                 ],
@@ -279,7 +273,7 @@ export default {
                     {
                         name: "SG-Telefonia",
                         url:
-                            "http://localhost/sg-telefonia/index.php?r=site/login&token=" +
+                            "http://webltga.espe.edu.ec/sg-telefonia/index.php?r=site/login&token=" +
                             localStorage.getItem("laravel-jwt-auth")
                     }
                 ]
