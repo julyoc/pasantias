@@ -32,6 +32,22 @@ class AuthController extends Controller
         $user->save();
         return response()->json(['status' => 'success'], 200);
     }
+    
+    
+    public function updatePassword(Request $request)
+    {
+        
+        $user = User::find(Auth::user()->id);
+        $user->password = bcrypt($request->password);
+        if($user->save()){
+            return response()->json(['status' => 'successs'], 200);
+        }
+        else{
+            return response()->json(['error' => 'login_error'], 401);
+        }
+        
+        
+    }
 
     public function login(Request $request)
     {
@@ -54,7 +70,7 @@ class AuthController extends Controller
     public function user(Request $request)
     {
         $user = User::find(Auth::user()->id);
-        return response()->json([
+        return response()->json([ 
             'status' => 'success',
             'data' => $user
         ]);

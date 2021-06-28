@@ -5,7 +5,7 @@ import RegisterComponent from './components/register';
 import LoginComponent from './components/login';
 import Dashboard from './components/dashboard';
 import RecPassComponent from './components/recpass.vue';
-
+import Profile from './components/profile.vue'
 const routes = [
     {
         path: '/',
@@ -55,7 +55,15 @@ const routes = [
       meta: {
         auth: true
       }
-    }
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile,
+      meta: {
+        auth: true
+      } 
+    },
 ];
 
 export default new VueRouter({

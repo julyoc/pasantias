@@ -22,6 +22,11 @@
       </ul>
       <ul class="navbar-nav ml-auto" v-if="$auth.check()">
         <li class="nav-item">
+          <a class="nav-link" href="profile">Cambiar contraseña</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto" v-if="$auth.check()">
+        <li class="nav-item">
           <a class="nav-link" href="#" @click.prevent="$auth.logout()">Logout</a>
         </li>
       </ul>
@@ -40,7 +45,7 @@
           ],
           // LOGGED USER
           user: [
-            { name: 'Dashboard', path: 'dashboard' }
+            { name: 'Dashboard', path: 'dashboard' },
           ],
           // LOGGED ADMIN
           admin: [

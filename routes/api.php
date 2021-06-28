@@ -28,6 +28,7 @@ Route::prefix('v1')->group(function () {
         Route::middleware('auth:api')->group(function () {
             Route::get('user', 'AuthController@user');
             Route::post('logout', 'AuthController@logout');
+            Route::post('updatepass', 'AuthController@updatePassword');
         });
     });
     Route::prefix('token')->group(function () {

@@ -36,7 +36,7 @@ const config = {
         method: 'GET', 
         enabled: true, 
         interval: 30
-    }
+    },
 };
 
 export default config;
