@@ -5,7 +5,8 @@ import RegisterComponent from './components/register';
 import LoginComponent from './components/login';
 import Dashboard from './components/dashboard';
 import RecPassComponent from './components/recpass.vue';
-import Profile from './components/profile.vue'
+import Profile from './components/profile.vue';
+import Alumno from './components/alumno.vue';
 const routes = [
     {
         path: '/',
@@ -64,6 +65,11 @@ const routes = [
         auth: true
       } 
     },
+    {
+      path: '/alumno.vue',
+      name: 'alumno',
+      component: Alumno
+    }
 ];
 
 export default new VueRouter({
