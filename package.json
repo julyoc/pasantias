@@ -11,6 +11,7 @@
         "start": "php artisan serve"
     },
     "devDependencies": {
+        "@nuxtjs/vuetify": "^1.12.1",
         "@websanova/vue-auth": "^2.21.17-beta",
         "axios": "^0.19.2",
         "bootstrap": "^4.0.0",
@@ -35,6 +36,8 @@
         "bootstrap-vue": "^2.6.1",
         "vue-cookies": "^1.7.4",
         "vue-password": "^3.0.0",
+        "vue-responsive-dash": "^0.5.0",
+        "vuetify": "^2.5.6",
         "zxcvbn": "^4.4.2"
     }
 }
