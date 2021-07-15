@@ -71,41 +71,47 @@
 
 <script>
 export default {
-  data() {
-    return {
-      password: '',
-      password_confirmation: '',
-      has_error: false,
-      error: "",
-      errors: {}
-    }
-  },
+    data() {
+        return {
+            password: "",
+            password_confirmation: "",
+            has_error: false,
+            error: "",
+            errors: {}
+        };
+    },
 
-  methods: {
-    updatepass() {
-        var app = this;
-        console.log("Trying : " + app.password+" hachi");
-        //console.log(app.password);
-        console.log(this.$auth);
-        if(this.password===this.password_confirmation){
-            axios.get(`${window.location.origin}/api/v1/auth/user`).then(res => {
-            this.role = res.data.data.name;
-            console.log(res.data.data.name);
-                axios.post(`${window.location.origin}/api/v1/auth/updatepass`,{
-                password:this.password
-                }).then(res => {
-                    console.log("Try changed");
-                    this.$auth.logout();
-                });
-            });
-        }
-        else{
-            app.has_error = true;
-            app.error = res.response.data.error;
-            app.errors = res.response.data.errors || {};
+    methods: {
+        updatepass() {
+            var app = this;
+            console.log("Trying : " + app.password + " hachi");
+            //console.log(app.password);
+            console.log(this.$auth);
+            if (this.password === this.password_confirmation) {
+                axios
+                    .get(`${window.location.origin}/api/v1/auth/user`)
+                    .then(res => {
+                        this.role = res.data.data.name;
+                        console.log(res.data.data.name);
+                        axios
+                            .post(
+                                `${window.location.origin}/api/v1/auth/updatepass`,
+                                {
+                                    password: this.password
+                                }
+                            )
+                            .then(res => {
+                                console.log("Try changed");
+                                this.$auth.logout();
+                            });
+                        d;
+                    });
+            } else {
+                app.has_error = true;
+                app.error = res.response.data.error;
+                app.errors = res.response.data.errors || {};
+            }
         }
     }
-  }
-  
-}
+};
 </script>
