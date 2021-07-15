@@ -25,7 +25,12 @@
           <a class="nav-link" href="profile">Cambiar contraseña</a>
         </li>
       </ul>
-      <ul class="navbar-nav ml-auto" v-if="$auth.check()">
+      <ul class="navbar-nav ml-auto" v-if="role === 'adm'">
+        <li class="nav-item">
+          <a class="nav-link" href="admin">Administrar usuarios</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto" v-if="$auth.check() ">
         <li class="nav-item">
           <a class="nav-link" href="#" @click.prevent="$auth.logout()">Logout</a>
         </li>
@@ -37,6 +42,7 @@
   export default {
     data() {
       return {
+        role:undefined,
         routes: {
           // UNLOGGED
           unlogged: [
@@ -56,6 +62,10 @@
     },
     mounted() {
       //
+       axios.get(`${window.location.origin}/api/v1/auth/user`).then(res => {
+            this.role = res.data.data.role;
+            console.log(res.data.data.role);
+        });
     }
   }
 </script>

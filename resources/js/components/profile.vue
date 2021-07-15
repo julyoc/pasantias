@@ -59,7 +59,7 @@
                                 />
                             </div>
                             <button type="submit" class="btn btn-primary">
-                                Change Password
+                                Cambiar contraseña
                             </button>
                         </form>
                     </div>

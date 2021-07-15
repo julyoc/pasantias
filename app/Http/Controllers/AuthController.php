@@ -51,7 +51,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('name', 'password');
         if ($token = $this->guard()->attempt($credentials)) {
             return response()->json(['status' => 'success'], 200)->header('Authorization', $token);
         }
@@ -86,6 +86,31 @@ class AuthController extends Controller
         return response()->json(['error' => 'refresh_token_error'], 401);
     }
 
+    //if a user is loged in it returns the list of all the other users
+    public function userList()
+    {
+        $users = User::orderBy('name', 'asc')->get();  
+        return response()->json([
+            'status' => 'success',
+            'data' => $users
+        ]);
+    }
+
+    public function adminpassword(Request $request)
+    {
+        $user =User::where('name',$request->name)->first();
+        $user->password = bcrypt($request->password);
+        if($user->save()){
+            return response()->json(['status' => 'successs'], 200);
+        }
+        else{
+            return response()->json(['error' => 'login_error'], 401);
+        }
+        
+        
+    }
+
+    
     private function guard()
     {
         return Auth::guard();

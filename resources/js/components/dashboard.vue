@@ -5,12 +5,12 @@
             
             <div class="row">
                 <div class="col-md-4">
-                    <a :href="this.items.sgrad">
+                    <a target="_blank" :href="this.items.sgrad">
                         <div class="card">
                             <div class="card-header">
                                 <img
                                     class="card-img-top"
-                                    src="../../assets/sg-ecp.png"
+                                    src="../../assets/sg-rad.png"
                                 />
                             </div>
                         </div>
@@ -19,7 +19,7 @@
                 <hr />
 
                 <div class="col-md-4">
-                    <a :href="this.items.otrs">
+                    <a target="_blank" :href="this.items.otrs">
                         <div class="card">
                             <div class="card-header">
                                 <img
@@ -32,7 +32,7 @@
                 </div>
                 <hr />
                 <div class="col-md-4">
-                    <a :href="this.items.ecp">
+                    <a target="_blank" :href="this.items.ecp">
                         <div class="card">
                             <div class="card-header">
                                 <img
@@ -47,7 +47,7 @@
             <hr />
             <div class="row">
                 <div class="col-md-4">
-                    <a :href="this.items.telefonia">
+                    <a target="_blank" :href="this.items.telefonia">
                         <div class="card">
                             <div class="card-header">
                                 <img
@@ -59,7 +59,7 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a :href="this.items.fin">
+                    <a target="_blank" :href="this.items.fin">
                         <div class="card">
                             <div class="card-header">
                                 <img
@@ -71,7 +71,7 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a :href="this.items.educacioncontinua">
+                    <a target="_blank" :href="this.items.educacioncontinua">
                         <div class="card">
                             <div class="card-header">
                                 <img
@@ -86,7 +86,7 @@
             <hr />
             <div class="row" style="justify-content: center">
                 <div class="col-md-4">
-                    <a :href="this.items.reporteshistoricos">
+                    <a target="_blank" :href="this.items.reporteshistoricos">
                         <div class="card">
                             <div class="card-header">
                                 <img

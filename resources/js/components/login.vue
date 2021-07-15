@@ -20,13 +20,11 @@
                             method="post"
                         >
                             <div class="form-group">
-                                <label for="email">E-mail</label>
+                                <label for="username">E-mail</label>
                                 <input
-                                    type="email"
-                                    id="email"
+                                    
+                                    id="username"
                                     class="form-control"
-                                    placeholder="user@example.com"
-                                    v-model="email"
                                     required
                                 />
                             </div>
@@ -55,7 +53,7 @@
 export default {
     data() {
         return {
-            email: null,
+            username: null,
             password: null,
             success: false,
             has_error: false,
@@ -72,7 +70,7 @@ export default {
             var app = this;
             this.$auth.login({
                 data: {
-                    email: app.email,
+                    username: app.username,
                     password: app.password
                 },
                 success: function() {

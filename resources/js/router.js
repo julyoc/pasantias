@@ -1,11 +1,10 @@
 import VueRouter from 'vue-router';
 
 import HomeComponent from './components/home';
-import RegisterComponent from './components/register';
 import LoginComponent from './components/login';
 import Dashboard from './components/dashboard';
-import RecPassComponent from './components/recpass.vue';
-import Profile from './components/profile.vue'
+import Profile from './components/profile.vue';
+import Admin from './components/admin.vue';
 const routes = [
     {
         path: '/',
@@ -24,25 +23,9 @@ const routes = [
       }
   },
     {
-      path: '/register',
-      name: 'register',
-      component: RegisterComponent,
-      meta: {
-        auth: false
-      }
-    },
-    {
       path: '/login',
       name: 'login',
       component: LoginComponent,
-      meta: {
-        auth: false
-      }
-    },
-    {
-      path: '/rec/pasword/1h1g1',
-      name: 'recuperar contraseña',
-      component: RecPassComponent,
       meta: {
         auth: false
       }
@@ -62,8 +45,15 @@ const routes = [
       component: Profile,
       meta: {
         auth: true
-      } 
-    },
+      }
+    },{
+      path: '/admin',
+      name: 'admin',
+      component: Admin,
+      meta: {
+        auth: true
+      }
+    }
 ];
 
 export default new VueRouter({

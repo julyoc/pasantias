@@ -19,19 +19,14 @@
                             </div>
                             <form autocomplete="off" @submit.prevent="login" method="post">
                                 <div class="form-group">
-                                    <label for="email" style="color:black" >Nombre de Usuario</label>
-                                    <input type="email" id="email" class="form-control" placeholder="Usuario" v-model="email" required>
+                                    <label for="name" style="color:black" >Nombre de Usuario</label>
+                                    <input type="name" id="name" class="form-control" placeholder="Usuario" v-model="name" required>
                                 </div>
                                 <div class="form-group contq">
                                     <label for="password" style="color:black" >Contraseña</label>
                                     <input type="password" id="password" class="form-control" v-model="password" placeholder="Contraseña" required>
                                 </div>
                                 <br>
-                                <div class="form-group ccc">
-                                    <router-link to="/rec/pasword/1h1g1">Ha olvidado su contraseña?</router-link>
-                                    <br><br>
-                                    <router-link to="/register">Registrarse</router-link>
-                                </div>
                                 <div class="bbbtn">
                                     <button type="submit" class="btn btn-primary">Acceder</button>
                                 </div>
@@ -70,7 +65,7 @@ const zxcvbn = require('zxcvbn');
     export default {
         data() {
             return {
-                email: null,
+                name: null,
                 password: null,
                 success: false,
                 has_error: false,
@@ -90,7 +85,7 @@ const zxcvbn = require('zxcvbn');
                 var app = this
                 this.$auth.login({
                     data: {
-                    email: app.email,
+                    name: app.name,
                     password: app.password
                     },
                     success: function() {
