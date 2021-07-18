@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function () {
     Route::prefix('auth')->group(function () {
-        
+
         Route::post('register', 'AuthController@register');
         Route::post('login', 'AuthController@login');
         Route::get('refresh', 'AuthController@refresh');
@@ -31,7 +31,7 @@ Route::prefix('v1')->group(function () {
             Route::post('logout', 'AuthController@logout');
             Route::post('updatepass', 'AuthController@updatePassword');
             Route::get('listusers', 'AuthController@userList');
-            Route::post('adminpassword', 'AuthController@adminpassword');
+            Route::post('requestadmin', 'AuthController@requestAdmin');
         });
     });
     Route::prefix('token')->group(function () {

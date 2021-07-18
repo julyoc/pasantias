@@ -105,11 +105,21 @@ class AuthController extends Controller
         }
         else{
             return response()->json(['error' => 'login_error'], 401);
-        }
-        
-        
+        } 
     }
 
+    //Laravel function that changes role in database
+    public function requestAdmin(Request $request)
+    {
+        $user =User::where('name',$request->name)->first();
+        $user->role = $request->role;
+        if($user->save()){
+            return response()->json(['status' => 'successs'], 200);
+        }
+        else{
+            return response()->json(['error' => 'login_error'], 401);
+        } 
+    }
     
     private function guard()
     {

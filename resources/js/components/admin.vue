@@ -26,7 +26,6 @@
             <div class="row">
                 <div class="col-md-6">
                     <button
-                        @click="showModal"
                         user="'user'"
                         class="btn btn-primary"
                         data-toggle="modal"
@@ -43,7 +42,7 @@
                     </button>
                 </div>
             </div>
-            <hr>
+            <hr />
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -54,10 +53,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="user in users">
+                    <tr v-for="user in users" v-bind:key="user.name">
                         <td>{{ user.name }}</td>
                         <td>{{ user.email }}</td>
-                        <td></td>
+                        <td>
+                            <!-- Checkbox in row -->
+                            <input
+                                type="checkbox"
+                                user="'user'"
+                                @change="changeRole(user)"
+                                v-model="user.role"
+                                true-value="adm"
+                                
+                            />
+                        </td>
                         <td>
                             <div class="row">
                                 <div class="offset-3"></div>
@@ -86,7 +95,6 @@
                 tabindex="-1"
                 aria-labelledby="staticBackdropLabel"
                 aria-hidden="true"
-                v-show="isModalVisible"
             >
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -353,13 +361,15 @@ export default {
     data() {
         return {
             users: undefined,
-            role: undefined,
+            role: "",
             selectedUser: "",
             name: "",
             password: "",
+            email: "",
             password_confirmation: "",
             has_error: false,
             error: "",
+            success: undefined,
             errors: {},
             isModalVisible: false
         };
@@ -370,7 +380,6 @@ export default {
             .then(res => {
                 this.role = res.data.data.role;
                 console.log(res.data.data.role);
-                console.log(this.items.doc);
             })
             .then(() => {
                 if (this.role === "adm") {
@@ -378,6 +387,7 @@ export default {
                         .get(`${window.location.origin}/api/v1/auth/listusers`)
                         .then(res => {
                             this.users = res.data.data;
+                            console.log(this.users);
                             console.log(res.data.data);
                         });
                     console.log("admin");
@@ -433,7 +443,7 @@ export default {
                     email: app.email,
                     password: app.password,
                     password_confirmation: app.password_confirmation,
-                    role: app.role
+                    role: "user"
                 },
                 success: function() {
                     app.success = true;
@@ -448,11 +458,41 @@ export default {
             });
             router.push("admin");
         },
-        showModal() {
-            this.isModalVisible = true;
-        },
-        closeModal() {
-            this.isModalVisible = false;
+
+        changeRole(user) {
+            console.log(user);
+            console.log(user.role);
+            var UserRole = user.role;
+            console.log(UserRole);
+            if (UserRole !=  "adm") {
+                console.log("Quitar permiso");
+                axios;
+
+                axios.post(
+                    `${window.location.origin}/api/v1/auth/requestadmin`,
+                    {
+                        name: user.name,
+                        role: "user"
+                    }
+                ).then(res => {
+                    console.log("User set");})
+
+            } else {
+                console.log("Dar permiso");
+                axios.post(
+                    `${window.location.origin}/api/v1/auth/requestadmin`,
+                    {
+                        name: user.name,
+                        role: "adm"
+                    }
+                ).then(res => {
+                    console.log("Admin set");
+                })
+            }
+
+            console.log("Change role");
+            console.log(user);
+            console.log(user.role);
         }
     }
 };
