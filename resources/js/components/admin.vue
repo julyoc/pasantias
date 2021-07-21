@@ -64,7 +64,6 @@
                                 @change="changeRole(user)"
                                 v-model="user.role"
                                 true-value="adm"
-                                
                             />
                         </td>
                         <td>
@@ -75,9 +74,10 @@
                                         user="'user'"
                                         class="btn btn-primary"
                                         data-toggle="modal"
-                                        data-target="#staticBackdrop"
+                                        data-target="#changePassword"
                                         @click="sendInfo(user)"
                                         v-b-modal="'myModal'"
+                                        v-show="'isModalVisible'"
                                     >
                                         Cambiar
                                     </button>
@@ -88,7 +88,7 @@
                 </tbody>
             </table>
             <div
-                id="staticBackdrop"
+                id="changePassword"
                 class="modal fade"
                 data-backdrop="static"
                 data-keyboard="false"
@@ -127,6 +127,8 @@
                                 <form
                                     autocomplete="off"
                                     @submit.prevent="adminpassword"
+                                    onsubmit="closeModal()"
+                                    v-if="!success"
                                     method="post"
                                 >
                                     <div
@@ -139,7 +141,7 @@
                                         <label
                                             style="color:black"
                                             for="password"
-                                            >Ingrese la nueva contraseña</label
+                                            >Contraseña</label
                                         >
                                         <input
                                             type="password"
@@ -175,7 +177,6 @@
                                     <button
                                         type="submit"
                                         class="btn btn-primary"
-                                        data-dismiss="modal"
                                     >
                                         Cambiar contraseña
                                     </button>
@@ -464,30 +465,34 @@ export default {
             console.log(user.role);
             var UserRole = user.role;
             console.log(UserRole);
-            if (UserRole !=  "adm") {
+            if (UserRole != "adm") {
                 console.log("Quitar permiso");
                 axios;
 
-                axios.post(
-                    `${window.location.origin}/api/v1/auth/requestadmin`,
-                    {
-                        name: user.name,
-                        role: "user"
-                    }
-                ).then(res => {
-                    console.log("User set");})
-
+                axios
+                    .post(
+                        `${window.location.origin}/api/v1/auth/requestadmin`,
+                        {
+                            name: user.name,
+                            role: "user"
+                        }
+                    )
+                    .then(res => {
+                        console.log("User set");
+                    });
             } else {
                 console.log("Dar permiso");
-                axios.post(
-                    `${window.location.origin}/api/v1/auth/requestadmin`,
-                    {
-                        name: user.name,
-                        role: "adm"
-                    }
-                ).then(res => {
-                    console.log("Admin set");
-                })
+                axios
+                    .post(
+                        `${window.location.origin}/api/v1/auth/requestadmin`,
+                        {
+                            name: user.name,
+                            role: "adm"
+                        }
+                    )
+                    .then(res => {
+                        console.log("Admin set");
+                    });
             }
 
             console.log("Change role");
