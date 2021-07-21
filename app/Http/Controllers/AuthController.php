@@ -98,7 +98,7 @@ class AuthController extends Controller
 
     public function adminpassword(Request $request)
     {
-        $user =User::where('name',$request->name)->first();
+        $user = User::where('name',$request->name)->first();
         $user->password = bcrypt($request->password);
         if($user->save()){
             return response()->json(['status' => 'successs'], 200);
