@@ -196,8 +196,8 @@ export default {
     min-height: 100%;
     height: 100%;
     position: fixed;
-}
--- > label {
+} 
+--> label {
     color: black;
 }
 </style>
