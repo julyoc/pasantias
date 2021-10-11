@@ -223,12 +223,12 @@
                       'has-error': has_error && errors.name,
                     }"
                   >
-                    <label style="color: black" for="name">Nombre</label>
+                    <label style="color: black" for="name">Nombre de usuario</label>
                     <input
                       type="text"
                       id="name"
                       class="form-control"
-                      placeholder="Nombre"
+                      placeholder="nusuario"
                       v-model="name"
                     />
                     <span class="help-block" v-if="has_error && errors.name">{{
