@@ -6,11 +6,20 @@ import Dashboard from "./components/dashboard";
 import Profile from "./components/profile.vue";
 import Admin from "./components/admin.vue";
 import ErrorComponent from "./components/error.vue";
+import RegisterComponent from "./components/register.vue"
 const routes = [
     {
         path: "/",
         name: "home",
         component: HomeComponent,
+        meta: {
+            auth: false
+        }
+    },
+    {
+        path: "/register",
+        name: "register",
+        component: RegisterComponent,
         meta: {
             auth: false
         }

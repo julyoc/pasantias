@@ -58,6 +58,7 @@
               <input
                 type="checkbox"
                 user="'user'"
+                @click="sendInfo(user)"
                 @change="changeRole(user)"
                 v-model="user.role"
                 true-value="adm"
@@ -95,18 +96,19 @@
       >
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header justify-content-center">
               <button
                 type="button"
-                class="close color-black"
+                class="close"
                 data-dismiss="modal"
-                aria-label="Close"
+                aria-hidden="true"
               >
-                <span aria-hidden="true">&times;</span>
+              <img src="../../assets/espe-sede-Latacunga.png" width="300" height="auto">
+                &times;
               </button>
             </div>
-            <div class="modal-body">
-              <h2>Cambiar contraseña de {{ selectedUser.name }}</h2>
+            <div class="modal-body" style="font-family:Roboto; font-size:26px">
+              <h2>Cambiar contraseña de <u>{{ selectedUser.name }}</u></h2>
               <div class="card-body">
                 <div class="alert alert-danger" v-if="has_error && !success">
                   <p v-if="error == 'login_error'">Validation Errors.</p>
@@ -166,7 +168,7 @@
               <button
                 type="button"
                 class="btn btn-secondary"
-                data-dismiss="modal fade"
+                data-dismiss="modal"
               >
                 Cerrar
               </button>
@@ -189,11 +191,12 @@
             <div class="modal-header">
               <button
                 type="button"
-                class="close color-black"
+                class="close"
                 data-dismiss="modal"
-                aria-label="Close"
+                aria-hidden="true"
               >
-                <span aria-hidden="true">&times;</span>
+              <img src="../../assets/espe-sede-Latacunga.png" width="300" height="auto">
+                &times;
               </button>
             </div>
             <div class="modal-body">
@@ -310,7 +313,7 @@
           <div class="modal-content">
             <div class="modal-header justify-content-center">
               <div class="icon-box">
-                <i class="material-icons">&#xE876;</i>
+               <i class="fas fa-clipboard-check"></i>
               </div>
               <button
                 type="button"
@@ -318,15 +321,15 @@
                 data-dismiss="modal"
                 aria-hidden="true"
               >
+              <img src="../../assets/espe-sede-Latacunga.png" width="300" height="auto">
                 &times;
               </button>
             </div>
-            <div class="modal-body text-center">
-              <h4>Great!</h4>
-              <p>Your account has been created successfully.</p>
+            <div class="modal-body text-center" style="font-family:Roboto; font-size:26px">
+              <h4><b>Cambio exitoso!</b></h4>
+              <p>La contraseña de <u>{{selectedUser.name}}</u> fue cambiada</p>
               <button class="btn btn-success" data-dismiss="modal">
-                <span>Start Exploring</span>
-                <i class="material-icons">&#xE5C8;</i>
+                <span>Continuar</span>
               </button>
             </div>
           </div>
@@ -337,24 +340,22 @@
         <div class="modal-dialog modal-confirm">
           <div class="modal-content">
             <div class="modal-header justify-content-center">
-              <div class="icon-box">
-                <i class="material-icons">&#xE876;</i>
-              </div>
               <button
                 type="button"
                 class="close"
                 data-dismiss="modal"
                 aria-hidden="true"
               >
+              <img src="../../assets/espe-sede-Latacunga.png" width="300" height="auto">
                 &times;
               </button>
             </div>
-            <div class="modal-body text-center">
-              <h4>Great!</h4>
-              <p>Las contraseñas no son las mismas</p>
-              <button class="btn btn-success" data-dismiss="modal">
-                <span>Start Exploring</span>
-                <i class="material-icons">&#xE5C8;</i>
+            <div class="modal-body text-center" style="font-family:Roboto; font-size:26px">
+              <h4 style="font-color:red"><b>Error!</b></h4>
+              <p>Revise que las contraseñas sean iguales</p>
+              <button class="btn btn-danger" data-dismiss="modal">
+                <span>Volver</span>
+               
               </button>
             </div>
           </div>
@@ -365,24 +366,22 @@
         <div class="modal-dialog modal-confirm">
           <div class="modal-content">
             <div class="modal-header justify-content-center">
-              <div class="icon-box">
-                <i class="material-icons">&#xE876;</i>
-              </div>
               <button
                 type="button"
                 class="close"
                 data-dismiss="modal"
                 aria-hidden="true"
               >
+              <img src="../../assets/espe-sede-Latacunga.png" width="300" height="auto">
                 &times;
               </button>
             </div>
-            <div class="modal-body text-center">
-              <h4>Great!</h4>
-              <p>Your account has been created successfully.</p>
+            <div class="modal-body text-center" style="font-family:Roboto; font-size:26px">
+              <h4><b>Permisos de administrador concedidos!</b></h4>
+              <p>El usuario <u>{{selectedUser.name}}</u> tiene permisos de administrador.</p>
               <button class="btn btn-success" data-dismiss="modal">
-                <span>Start Exploring</span>
-                <i class="material-icons">&#xE5C8;</i>
+                <span>Volver</span>
+
               </button>
             </div>
           </div>
@@ -393,24 +392,22 @@
         <div class="modal-dialog modal-confirm">
           <div class="modal-content">
             <div class="modal-header justify-content-center">
-              <div class="icon-box">
-                <i class="material-icons">&#xE876;</i>
-              </div>
               <button
                 type="button"
                 class="close"
                 data-dismiss="modal"
                 aria-hidden="true"
               >
+              <img src="../../assets/espe-sede-Latacunga.png" width="300" height="auto">
                 &times;
               </button>
             </div>
-            <div class="modal-body text-center">
-              <h4>Great!</h4>
-              <p>Your account has been created successfully.</p>
-              <button class="btn btn-success" data-dismiss="modal">
-                <span>Start Exploring</span>
-                <i class="material-icons">&#xE5C8;</i>
+            <div class="modal-body text-center" style="font-family:Roboto; font-size:26px">
+              <h4><b>Permisos de administrador retirados!</b></h4>
+              <p>Los permisos de administrador de <u>{{selectedUser.name}}</u> han sido retirados.</p>
+              <button class="btn btn-danger" data-dismiss="modal">
+                <span>Volver</span>
+
               </button>
             </div>
           </div>
@@ -492,6 +489,8 @@ export default {
               console.log("Trying : " + app.name + " + " + app.password);
               $("#changePassword").modal("hide");
               $("#showSuccess").modal("show");
+              $("#password").value="";
+              $("#password_confirmation").value="";
             });
         } else {
           app.has_error = true;
@@ -520,6 +519,7 @@ export default {
           app.success = true;
           this.$router.push("admin");
           router.push("");
+          
         },
         error: function (res) {
           app.has_error = true;
